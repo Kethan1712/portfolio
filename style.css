@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+header {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #00ffe1;
+}
+
+header h1 {
+    color: #00ffe1;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+nav a {
+    color: #00ffe1;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #00ffe1;
+    color: #00ffff;
+    background-color: rgba(0, 255, 225, 0.08);
+}
+
+/* Section Hover Effect */
+section {
+    max-width: 1000px;
+    margin: 40px auto; /* Adjust margin to allow space for lift */
+    padding: 40px 20px;
+    background-color: #1e1e1e; /* Moved background to section for consistent hover */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 255, 225, 0.15);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth transition for hover */
+    position: relative; /* Needed for z-index if overlapping */
+    z-index: 1; /* Default z-index */
+}
+
+section:hover {
+    transform: translateY(-15px); /* Move section up by 15px */
+    box-shadow: 0 10px 25px rgba(0, 255, 225, 0.4); /* Enhanced shadow on hover */
+    z-index: 10; /* Bring hovered section to front */
+}
+
+/* Ensure cards within sections don't inherit the section's background */
+.card {
+    background: transparent; /* Card background is now transparent as section has it */
+    padding: 0; /* Remove padding as section handles it */
+    margin: 0; /* Remove margin as section handles it */
+    border: none; /* Remove border as section has it */
+    box-shadow: none; /* Remove shadow as section has it */
+}
+
+/* Re-apply styling for inner elements of the card if needed, or adjust section padding */
+section .card p, section .card strong {
+    color: #e0e0e0; /* Ensure text color is consistent */
+}
+
+/* For project links specifically, keep their distinct styling */
+.projects a {
+    color: #00ffe1;
+    text-decoration: underline;
+}
+
+h2 {
+    color: #00ffe1;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #00ffe1;
+    border-radius: 2px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #999;
+    margin-top: 40px;
+}
+
+.resume {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #00ffe1;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.resume:hover {
+    background-color: #00cccc;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 255, 225, 0.3);
+}
+
+/* About Me Images Styling */
+.about-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.about-badge-img {
+    max-width: 180px;
+    height: auto;
+    border: 1px solid #00ffe1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 255, 225, 0.2);
+}
+
+.about-cert-img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #00ffe1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 255, 225, 0.2);
+}
+
+
+/* Skill Logos Grid */
+.skill-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #2a2a2a; /* Maintain a background for skill items */
+    padding: 15px 10px;
+    border-radius: 8px;
+    border: 1px solid #00ffe155;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    width: 100%;
+    height: 120px;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 255, 225, 0.2);
+    background-color: #333;
+}
+
+.skill-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 225, 0.3));
+}
+
+.skill-item span {
+    font-size: 0.95em;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+
+/* Certifications Grid */
+.certification-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 15px;
+    justify-items: center;
+}
+
+.certification-item {
+    background-color: #2a2a2a; /* Maintain a background for cert items */
+    border: 1px solid #00ffe155;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 255, 225, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 255, 225, 0.25);
+}
+
+.certification-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #00ffe1;
+    border-radius: 8px 8px 0 0;
+}
+
+.certification-item p {
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #00ffe1;
+    background-color: #222;
+}
+
+
+@media (max-width: 768px) {
+    .skill-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+    }
+    .certification-grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .certification-item img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav a {
+        padding: 8px 0;
+        text-align: center;
+    }
+    section {
+        padding: 20px 15px;
+        margin: 25px auto; /* Adjust margin for smaller screens */
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .about-badge-img {
+        max-width: 150px;
+    }
+    .skill-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .skill-item {
+        height: 100px;
+    }
+    .skill-item img {
+        width: 40px;
+        height: 40px;
+    }
+    .skill-item span {
+        font-size: 0.85em;
+    }
+}
